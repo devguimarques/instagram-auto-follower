@@ -1,3 +1,4 @@
+import datetime
 import os
 import time
 import selenium
@@ -9,31 +10,33 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager as CM
 
-# Complete these 2 fields ==================
-USERNAME = 'your instagram username'
-PASSWORD = 'your instagram password'
-# ==========================================
+USERNAME = 'your user'
+PASSWORD = 'your pass'
 
 TIMEOUT = 15
 
 
 def scrape():
-    usr = input('Whose followers do you want to scrape: ')
+    usr = input('page: ')
 
-    user_input = int(input('How many followers do you want to scrape (60-500 recommended): '))
+    user_input = int(input('followers: '))
 
     options = webdriver.ChromeOptions()
     # options.add_argument("--headless")
     options.add_argument('--no-sandbox')
     options.add_argument("--log-level=3")
 
-    bot = webdriver.Chrome(executable_path=CM().install(), options=options)
+    bot = webdriver.Chrome('C:/webdrivers/chromedriver')
 
     bot.get('https://www.instagram.com/accounts/login/')
 
     time.sleep(2)
 
     print("Logging in...")
+
+    bot.find_element_by_css_selector('body > div.RnEpo.Yx5HN._4Yzd2 > div > div > button.aOOlW.bIiDR').click() # cokies
+    time.sleep(0.6)
+
 
     user_element = WebDriverWait(bot, TIMEOUT).until(
         EC.presence_of_element_located((
