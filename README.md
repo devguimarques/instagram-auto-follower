@@ -1,5 +1,5 @@
-# instagram-follower-scraper
-This python script can automatically scrape other Instagram users' followers and save them in a text file.
+# instagram-auto-follower
+This python script can automatically scrape other Instagram users' followers and save them in a text file. After that you can follow the users scraped.
 
 # How to use:
 1. Install requirements using terminal or command line. You should run this command ```pip install -r requirements.txt```.
